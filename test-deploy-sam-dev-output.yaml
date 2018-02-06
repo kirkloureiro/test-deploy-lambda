@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Testing Deployment Process
+Resources:
+  testdeploysam:
+    Properties:
+      AutoPublishAlias: dev
+      CodeUri: s3://media-management-dev/testKirk62313/test-deploy/test-deploy-sam/index.zip
+      DeploymentPreference:
+        Type: AllAtOnce
+      Description: Testing Deployment Process from DEV
+      Environment:
+        Variables:
+          SOME_ENV_VARIABLE: DEV - My very first commit from DEV deploy
+      Handler: index.handler
+      MemorySize: 128
+      Role: arn:aws:iam::430460825739:role/lambda_basic_execution
+      Runtime: nodejs6.10
+      Timeout: 10
+      VpcConfig:
+        SecurityGroupIds:
+        - sg-22ce5759
+        SubnetIds:
+        - subnet-0dd53054
+        - subnet-cb3097ae
+        - subnet-df39fca8
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

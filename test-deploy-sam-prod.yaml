@@ -1,0 +1,28 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Testing Deployment Process
+Resources:
+  testdeploysam:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      AutoPublishAlias: prod
+      DeploymentPreference:
+       # Available type in doc at https://docs.aws.amazon.com/lambda/latest/dg/automating-updates-to-serverless-apps.html
+        Type: AllAtOnce 
+      CodeUri: s3://media-management-dev/testKirk62313/test-deploy/test-deploy-sam/index.zip
+      Description: Testing Deployment Process from PROD
+      MemorySize: 128
+      Timeout: 10
+      Role: 'arn:aws:iam::430460825739:role/lambda_basic_execution'
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-22ce5759
+        SubnetIds:
+          - subnet-0dd53054
+          - subnet-cb3097ae
+          - subnet-df39fca8
+      Environment:
+        Variables:
+          SOME_ENV_VARIABLE: PROD - My very first commit from PROD deploy

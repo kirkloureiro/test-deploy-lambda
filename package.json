@@ -1,0 +1,14 @@
+{
+  "name": "test-deploy-sam",
+  "version": "1.0.0",
+  "description": "Intended for Test Deploy",
+  "main": "index.js",
+  "license": "ISC",
+  "repository": "git@bitbucket.org:winemaker-ondemand/lambda_functions.git",
+  "private": true,
+  "dependencies": {
+  	"aws-sdk": "latest",
+  	"njwt": "0.4.0",
+  	"jsonwebtoken": "7.4.2"
+  }
+}
