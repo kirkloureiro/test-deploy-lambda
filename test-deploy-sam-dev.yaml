@@ -11,7 +11,7 @@ Resources:
       DeploymentPreference:
        # Available type in doc at https://docs.aws.amazon.com/lambda/latest/dg/automating-updates-to-serverless-apps.html
         Type: AllAtOnce      
-      CodeUri: s3://media-management-dev/testKirk62313/test-deploy/test-deploy-sam/index.zip
+      CodeUri: .
       Description: Testing Deployment Process from DEV
       MemorySize: 128
       Timeout: 10
